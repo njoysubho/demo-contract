@@ -14,6 +14,7 @@ beforeEach(async ()=>{
 
 describe('demo',()=>{
     it('deploys a contract',()=>{
+        console.log(demo.options.address);
         assert.ok(demo.options.address);
     });
 
@@ -26,5 +27,6 @@ describe('demo',()=>{
         await demo.methods.setMessage("bye").send({from:accounts[0],gas:'1000000'});
         const message = await demo.methods.message().call();
         assert.equal(message,"bye");
+        
     });
 });
